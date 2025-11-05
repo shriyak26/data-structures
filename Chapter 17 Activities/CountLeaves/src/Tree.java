@@ -24,6 +24,20 @@ public class Tree
             for (Node child : children) { sum = sum + child.size(); }
             return 1 + sum;
         }
+
+        public int leafCount()
+        {
+            
+            if (children.isEmpty()) {
+                return 1;  
+            } else {
+                int count = 0;
+                for (Node child : children) {
+                    count += child.leafCount();  
+                }
+                return count;
+            }
+        }
     }
 
     /**
@@ -62,6 +76,16 @@ public class Tree
         if (root == null) { return 0; }
         else { return root.size(); }
     }
+
+     public int leafCount()
+    {
+        if (root == null) {
+            return 0;
+        } else {
+            return root.leafCount();  
+        }
+    }
+    
 
     // Additional methods will be added in later sections.
 }

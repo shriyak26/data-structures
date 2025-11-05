@@ -1,7 +1,4 @@
-//HIDE
-/**
-    A binary tree in which each node has two children.
-*/
+// BinaryTree.java
 public class BinaryTree
 {
     private Node root;
@@ -34,15 +31,13 @@ public class BinaryTree
         root = new Node();
         root.data = rootData;
 
-          if( left != null )
-          {
-                root.left = left.root;
-          }
+        if (left != null) {
+            root.left = left.root;
+        }
 
-          if( right != null )
-          {
-                root.right = right.root;
-          }
+        if (right != null) {
+            root.right = right.root;
+        }
     }
 
     class Node
@@ -101,5 +96,34 @@ public class BinaryTree
         BinaryTree result = new BinaryTree();
         result.root = root.right;
         return result;
+    }
+
+    /**
+        Counts the number of nodes with exactly one child.
+        @return the number of nodes with exactly one child
+    */
+    public int countNodesWithOneChild()
+    {
+        return countNodesWithOneChild(root);
+    }
+
+    /**
+        Helper method to count nodes with exactly one child.
+        @param node the current node in the tree
+        @return the number of nodes with exactly one child
+    */
+    private int countNodesWithOneChild(Node node)
+    {
+        if (node == null) {
+            return 0;
+        }
+
+        int count = 0;
+
+        if ((node.left != null && node.right == null) || (node.left == null && node.right != null)) {
+            count = 1;
+        }
+
+        return count + countNodesWithOneChild(node.left) + countNodesWithOneChild(node.right);
     }
 }

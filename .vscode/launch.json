@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TreeDemo",
+            "request": "launch",
+            "mainClass": "TreeDemo",
+            "projectName": "data-structures_addf3fee"
+        },
+        {
+            "type": "java",
+            "name": "TreeTester",
+            "request": "launch",
+            "mainClass": "TreeTester",
+            "projectName": "data-structures_addf3fee"
+        },
+        {
+            "type": "java",
             "name": "QueueTester",
             "request": "launch",
             "mainClass": "QueueTester",
