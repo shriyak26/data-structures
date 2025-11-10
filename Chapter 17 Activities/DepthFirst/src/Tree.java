@@ -87,4 +87,25 @@ public class Tree
 
         return true;
     }
+
+
+    public void postorder(Visitor v)
+    {
+        if (root == null) return;
+        postorder(root, v);
+    }
+
+  
+    private boolean postorder(Node n, Visitor v)
+    {
+        if (n == null) return true;
+
+        for (Node child : n.children)
+        {
+            if (!postorder(child, v)) return false;
+        }
+
+        boolean continueTraversal = v.visit(n.data);
+        return continueTraversal;
+    }
 }
