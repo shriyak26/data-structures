@@ -65,4 +65,26 @@ public class Tree
     }
 
     // Additional methods will be added in later sections.
+    
+    public void depthFirst(Visitor v)
+    {
+        if (root == null) return;
+        depthFirst(root, v);
+    }
+
+ 
+    private boolean depthFirst(Node n, Visitor v)
+    {
+        if (n == null) return true;
+
+        boolean continueTraversal = v.visit(n.data);
+        if (!continueTraversal) return false; 
+
+        for (Node child : n.children)
+        {
+            if (!depthFirst(child, v)) return false;
+        }
+
+        return true;
+    }
 }

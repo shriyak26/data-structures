@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DepthFirstTester",
+            "request": "launch",
+            "mainClass": "DepthFirstTester",
+            "projectName": "data-structures_addf3fee"
+        },
+        {
+            "type": "java",
             "name": "TreeDemo",
             "request": "launch",
             "mainClass": "TreeDemo",
